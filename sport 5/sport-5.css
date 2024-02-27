@@ -1,0 +1,55 @@
+.box-height {
+    height: 180px;
+    max-width: 100%;
+}
+
+.box-height img {
+    height: 100%;
+}
+
+.box-width img {
+    width: 100%;
+}
+
+.borderb {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.491);
+}
+
+.col-12 span {
+    color: gainsboro;
+}
+
+.newsroom {
+    background-color: blue;
+    height: 300px;
+    color: azure;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.text-align {
+    text-align: right;
+}
+
+.col-4 div {
+    margin-top: 1%;
+}
+
+.col-8 div h4:hover {
+    color: red; cursor: pointer;
+}
+.col-8 div h6:hover {
+    color: red; cursor: pointer;
+}
+
+.col-4 div h5:hover {
+    text-decoration: underline;  cursor: pointer;
+}
+.col-4 div h6:hover {
+    text-decoration: underline;  cursor: pointer;
+}
+.col-12 div img { cursor: pointer;}
+.col-10 div img { cursor: pointer;}

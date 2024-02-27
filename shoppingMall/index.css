@@ -1,0 +1,125 @@
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.align { margin-left:5%;
+    margin-right: auto; }
+
+.accordion-item img {
+    height: 100px;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.gap {
+    gap: 20px;
+}
+
+.displayaco {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.accordion-body h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.display-collum {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.card img {
+    height: 300px;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.accordion-header h2 {
+    margin-left: 30px;
+}
+
+.table img {
+    height: 100px
+}
+
+.table {
+    text-align: center;
+}
+
+.starmall::before {
+    content: "";
+    background-image: url(https://fibacp.com.tr/wp-content/uploads/2017/06/5-no-starmall-after-1400x1119-1.jpg);
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #fff 90%, #fff 80%, transparent);
+
+    background-position: 50%;
+    background-position: 50%;
+    z-index: -1;
+    position: absolute;
+}
+
+.starmall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
+
+.starmallstar {
+    background-image: url(star-svgrepo-com.svg);
+    height: 250px;
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    align-items: center;
+    animation: starmall1 5s linear infinite;
+
+    width: 250px;
+    transition: 2s;
+
+}
+
+.starmall h1 {
+    color: rgb(60, 92, 169);
+    font-weight: bold;
+    background-color: #ffffff93;
+    border-radius: 10px; 
+    padding: 5px;
+
+
+}
+.starmallstar:hover{filter: brightness(2);}
+
+.design {color: rgb(60, 92, 169);
+    font-weight: bold;}
+    
+    
+    
+    .offcanvas-size-xxl {
+        --bs-offcanvas-width: min(95vw, 90vw) !important;
+    }
+
+.fixed { position: fixed; top: 10%; right: 0%;}  
+.btncanvas {display: flex ; justify-content: space-around; width: 30%;} 
