@@ -12,7 +12,7 @@ function init() {
 
     // })
 
-    for (let index = 0; index < books.length; index++) {
+   
         const currentBook = books[index];
         const bookContainerDiv = document.createElement("div") // create the single book container
         bookContainerDiv.id = `book_${index}`
@@ -42,7 +42,7 @@ function init() {
         bookContainerDiv.append(bookTitleH2, bookTitleH4, bookTitlecountry,bookLink,year,pages) // append title (h3) into single book container
 
         booksListDiv.append(bookContainerDiv) // append single book container into books list container
-    }
+    
 
 }
 
