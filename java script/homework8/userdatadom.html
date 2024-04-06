@@ -10,8 +10,40 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+       
+        <span class="navbar-brand mb-0 h1" >Useres data base</span>
+      </nav>
+   
     
-<div class="container" style="width: 70%;">
+    <div id="actions">
+
+        
+        <div class="display-flex">
+
+            <button class="btn btn-danger" onclick="clearusers()">Delete All users</button>
+            
+            <input id="searchInput" type="text" class="form-control" onclick="  search()" placeholder="Search a user by name"
+                aria-describedby="basic-addon1">
+                <button class="btn btn-success" onclick="search()">Search</button>
+            <button class="btn btn-warning" onclick="resetResult()">Reset</button>
+            <!-- <input id="searchInput" type="text" class="form-control" onkeyup="search()" placeholder="Search a book"
+                aria-describedby="basic-addon1"> -->
+                
+        </div>
+        <div  class="currentusers2"><input type="radio" id="male" name="gender" value="male" ><label>male</label>
+            <input type="radio" id="female" name="gender" value="female" ><label >female</label>
+            </div>
+        <div class="currentusers" >
+            <h4 id="totalResult"></h4><div>
+                <span > Selected users: </span>
+                <span id="selectedusersNumber"> </span>
+                
+            </div>
+            
+        </div>
+        
+    </div>
     <div id="userList" >
         
     </div>
