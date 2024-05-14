@@ -1,0 +1,21 @@
+.movies-content-class {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.singleMovieDiv {
+    height: 450px;
+    width: 300px;
+    margin: 10px;
+    border: 1px black solid;
+    padding: 10px;
+    text-align: center;
+}
+
+img {
+    width: 100px;
+
+}
+.overflow-y{ overflow-wrap:break-word; overflow-y: auto; height: 100px;}
