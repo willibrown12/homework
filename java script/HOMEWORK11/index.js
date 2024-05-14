@@ -15,7 +15,7 @@ function init() {
             // data returned from API 
             const data = await result.json()
             console.log(data);
-            draw(data,movieList)
+             draw(data,movieList)
             document.querySelector("#spinner").style.display = "none"
         } catch (error) {
             console.log(error)
