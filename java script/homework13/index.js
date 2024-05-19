@@ -1,8 +1,8 @@
 // fetch Api
 // HTTP requests
 // Return a Promise
-const API_URL = `https://www.omdbapi.com/?apikey=97fed692&s=`
-const API_URL_ID = `https://www.omdbapi.com/?apikey=97fed692&s&plot=full&i=`
+const API_URL = `https://www.omdbapi.com/?apikey=ffa5acbc&s=`
+const API_URL_ID = `https://www.omdbapi.com/?apikey=ffa5acbc&plot=full&i=`
 const API_URL_COUNTRIES = `https://restcountries.com/v3.1/all`
 
 const loader = document.querySelector("#spinner")
@@ -24,6 +24,7 @@ async function loadMovies(s) {
         clearData()
         loader.style.display = "block"
         const moviesArray = await getMoviesApi(s)
+        console.log(moviesArray)
         draw(moviesArray)
         const result = moviesArray.reduce((acc, currentMovie) => {
             if (acc[currentMovie.Type]) {
@@ -59,72 +60,6 @@ async function loadMovies(s) {
                 }
             }
         });
-        console.log(moviesArray);
-        const resultyear = moviesArray.reduce((acc, currentMovie) => {
-            if (acc[currentMovie.Year]) {
-                acc[currentMovie.Year] = acc[currentMovie.Year] + 1
-            } else {
-                acc[currentMovie.Year] = 1
-            }
-            return acc;
-        }, {})
-        console.log(resultyear)
-
-        const barColorsyear = [
-            "purple",
-            "green",
-            "blue",
-            "brown",
-            "pink",
-            "lime",
-            "violet",
-            "black"
-        ];
-        new Chart("yearPieChart", {
-            type: "pie",
-            data: {
-                labels: Object.keys(resultyear),
-                datasets: [{
-                    backgroundColor: barColorsyear,
-                    data: Object.values(resultyear)
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: "Movies year distribution"
-                }
-            }
-        });
-        new Chart("yearPieChart2", {
-            type: "doughnut",
-            data: {
-                labels: Object.keys(resultyear),
-                datasets: [{
-                    backgroundColor: barColorsyear,
-                    data: Object.values(resultyear)
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: "Movies year distribution"
-                }
-            }
-        });
-
-
-        const resultyear2 = moviesArray.reduce((acc, currentMovie) => {
-            if (acc[currentMovie.Year]) {
-                acc[currentMovie.Year] = acc[currentMovie.Year] + 1
-            } else {
-                acc[currentMovie.Year] = 1
-            }
-            return acc;
-        }, {})
-        console.log(resultyear2)
-
-       
 
     } catch (ex) {
         alert("Harel - application")
@@ -151,31 +86,13 @@ function getSingleMovie(movie) {
     const title = document.createElement("h3")
     const year = document.createElement("h5")
     const imdbID = document.createElement("button")
-   
-    imdbID.classList.add("btn","btn-success")
+    imdbID.classList.add("btn", "btn-success")
     const type = document.createElement("h5")
     const poster = document.createElement("img")
-    movie.isclicked=false
-    imdbID.addEventListener("click", async () => {
-        
-         
-        if ( movie.isclicked===true) {  
-       const ELEMENT=document.getElementById(movie.imdbID+"aa")
-       ELEMENT.remove()
-        movie.isclicked=false
-        console.log(movie.isclicked);
 
-        } else {const result = await getImdbIdPlotApi(movie.imdbID)
-            const collapse = document.createElement("div")
-            collapse.setAttribute("id",movie.imdbID+"aa")
-            collapse.className="overflow-y card card-body m-2"
-            collapse.innerText=result
-    
-            singleMovieDiv.append(collapse)
-            movie.isclicked=true
-            console.log(movie.isclicked);
-        }
-        
+    imdbID.addEventListener("click", async () => {
+        const result = await getImdbIdPlotApi(movie.imdbID)
+        console.log(result)
     })
 
     title.innerText = movie.Title
@@ -197,7 +114,7 @@ async function initCountries() {
     }
 
 }
-async function getMoviesApi(movieSearch = "shrek") {
+async function getMoviesApi(movieSearch = "scream") {
     const result = await fetch(API_URL + movieSearch, {
         method: "GET",
     })
@@ -222,8 +139,16 @@ async function getImdbIdPlotApi(id) {
 
 
 
+
 initMovies()
 initCountries()
 
 
 
+
+const countries = [{ name: "israel", p: 8 }, { name: "usa", p: 150 }, { name: "russia", p: 200 }, { name: "china", p: 500 }]
+
+countries.reduce((totalPopulation, currentCountry) => {
+    totalPopulation = totalPopulation + currentCountry.p
+    return totalPopulation
+}, 0) 
