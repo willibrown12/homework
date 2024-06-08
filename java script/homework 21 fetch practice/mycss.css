@@ -1,0 +1,49 @@
+.book-card {
+    padding: 10px;
+    border: 1px dotted orange;
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+
+.book-card button {
+    height: 30px;
+}
+
+.display-flex {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    gap: 3px;
+}
+
+.display-flex>button {}
+
+.display-flex>input {
+    width: 400px
+}
+
+.bookcardDiv{ display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: small;
+   
+}
+
+.currentusers{display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.currentusers2{display: flex;
+    
+    justify-content:center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
