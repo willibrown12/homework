@@ -36,7 +36,7 @@ function  getSingleuserUI(user){
     if (typeof user !== 'object') return;
 const cardDiv = document.createElement("div")
 cardDiv.className = "card text-bg-light mb-3"
-cardDiv.style.width = "28rem"
+cardDiv.style.width = "29rem"
 cardDiv.style.height = "14rem"
 
 
@@ -80,12 +80,38 @@ gender.innerText = "country: " + user?.location?.country
 const button = document.createElement("button")
 button.innerText="show country flag"
 button.className="btn btn-primary m-2"
+button.style.width="200px"
 button.addEventListener("click", async () => {
     try { const data= await fetch(`https://restcountries.com/v3.1/all`, {
         
     method: "get",
 })
  const result= await data.json()
+ console.log(result);
+ flagimg=result.filter(curent=>{
+    if(curent?.name?.common===user?.location?.country){
+        console.log(curent?.flags.png);
+      if (userimg.src===curent?.flags?.png) {
+        userimg.src = user?.picture?.large
+        button.innerText="show country flag"
+        button.className="btn btn-primary m-2"
+
+      } else {
+        userimg.src=curent?.flags?.png
+        button.innerText="show user"
+        button.className="btn btn-secondary m-2"
+      } 
+       
+        }
+       
+           
+    
+
+    
+    
+    
+ })
+
  
         
     } catch (error) {
