@@ -1,8 +1,7 @@
 
 async function init() {
-    const bookcardDiv = document.querySelector("#userList")
-    
-    bookcardDiv.className="bookcardDiv"
+    const userList = document.querySelector("#userList")
+    userList.className="bookcardDiv"
 
    const data =await getUsers()
    draw(data?.results)
