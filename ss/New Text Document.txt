@@ -1,0 +1,93 @@
+async function showLiveReport() {
+
+     /*  ==================loading page  ================== */
+    clearInterval(myInterval)
+    const liveReportdiv = document.querySelector("#liveReportdiv")
+    const ctx = document.getElementById('myChart');
+    liveReportdiv.classList.remove("d-none")
+  
+ /*  ==================fatch data  ================== */
+
+   const data=await getCoinliveprice()
+
+    /*  ==================crate chart  ================== */
+   const event = new Date
+ 
+   if(myChart.id===0){
+     myChart.destroy()
+}
+      
+   myChart=new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [event.toLocaleTimeString()],
+          datasets: [{
+            label: Object.keys(data)[0]|| "no data",
+            data: [Object.values(data)[0]?.USD,],
+            borderWidth: 1
+          },{
+            label:Object.keys(data)[1]|| "no data",
+            data: [Object.values(data)[1]?.USD,],
+            borderWidth: 1
+          },
+          {
+            label:Object.keys(data)[2] || "no data",
+            data: [Object.values(data)[2]?.USD,],
+            borderWidth: 1
+          },
+          {
+            label:Object.keys(data)[3]|| "no data",
+            data: [Object.values(data)[3]?.USD, ],
+            borderWidth: 1
+          },
+          {
+            label:Object.keys(data)[4]|| "no data",
+            data: [Object.values(data)[4]?.USD,],
+            borderWidth: 1
+          }],
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                  callbacks: {
+                    label: (ctx) => (`${ctx.dataset.label}: ${ctx.raw}`)
+                  }
+                }
+              },
+            
+          
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+      myChart.id=0
+     
+
+
+       /*  ==================set Interval to get data and updata chart   ================== */
+      
+   myInterval =setInterval(() => {
+        Promise.all([getCoinliveprice()]).then((results) => {
+           let timeevent= new Date
+         
+            addData(myChart, timeevent.toLocaleTimeString(), Object.values(results[0]))
+        results.splice(0,1)
+        }).catch(() => {
+            console.log("one of the requests failed.")
+        })
+        }, 10000)
+      
+}
+ /*  ==================chart js function   ================== */
+
+function addData(chart, label, newData) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset,index) => {
+        dataset.data.push(newData[index]?.USD);
+      
+    });
+    chart.update();
+}
